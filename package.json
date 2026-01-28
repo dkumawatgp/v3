@@ -1,0 +1,31 @@
+{
+  "name": "ai-mfe-test",
+  "version": "1.0.0",
+  "description": "A production-ready Node.js CLI tool for analyzing and generating",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "ai-mfe-test": "./dist/cli/index.js"
+  },
+  "scripts": {
+    "dev": "tsx src/cli/index.ts",
+    "build": "tsup",
+    "start": "node dist/cli/index.js"
+  },
+  "keywords": [
+    "cli",
+    "typescript",
+    "nodejs"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "tsx": "^4.7.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  }
+}
