@@ -20,7 +20,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "commander": "^11.1.0"
+    "commander": "^11.1.0",
+    "playwright": "^1.40.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",
