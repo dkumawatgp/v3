@@ -7,6 +7,9 @@ dist/
 # Output files
 outputs/
 
+# Generated tests
+generated-tests/
+
 # TypeScript
 *.tsbuildinfo
 
