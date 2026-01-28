@@ -1,6 +1,7 @@
 import { chromium, Browser, Page } from 'playwright';
 import { Logger } from '../utils/logger.js';
 import { saveJsonFile } from '../utils/file-system.js';
+import { analyzeMfe } from './mfe-detector.js';
 import { join } from 'path';
 
 interface PageSnapshot {
@@ -78,6 +79,10 @@ export async function analyze(url: string): Promise<void> {
     const outputPath = join(process.cwd(), 'outputs', 'page-snapshot.json');
     Logger.info(`Saving snapshot to: ${outputPath}`);
     await saveJsonFile(outputPath, snapshot);
+    
+    // Perform MFE detection
+    Logger.info('Starting MFE detection...');
+    await analyzeMfe(outputPath);
     
     Logger.success('Analysis completed successfully');
     
