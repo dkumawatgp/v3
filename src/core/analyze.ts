@@ -2,6 +2,7 @@ import { chromium, Browser, Page } from 'playwright';
 import { Logger } from '../utils/logger.js';
 import { saveJsonFile } from '../utils/file-system.js';
 import { analyzeMfe } from './mfe-detector.js';
+import { analyzeInteractions } from './interaction-mapper.js';
 import { join } from 'path';
 
 interface PageSnapshot {
@@ -83,6 +84,11 @@ export async function analyze(url: string): Promise<void> {
     // Perform MFE detection
     Logger.info('Starting MFE detection...');
     await analyzeMfe(outputPath);
+    
+    // Perform interaction mapping
+    Logger.info('Starting interaction mapping...');
+    const mfeAnalysisPath = join(process.cwd(), 'outputs', 'mfe-analysis.json');
+    await analyzeInteractions(outputPath, mfeAnalysisPath);
     
     Logger.success('Analysis completed successfully');
     
